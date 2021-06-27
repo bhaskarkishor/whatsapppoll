@@ -5,7 +5,7 @@
   },
   "hosting": {
     "public": "dist",
-    "site":"whatsapppoll",
+    "site": "whatsapppoll", 
     "ignore": [
       "firebase.json",
       "**/.*",
