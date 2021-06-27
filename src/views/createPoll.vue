@@ -1,5 +1,5 @@
 <template>
-      <v-card width="600" class="mx-auto my-12">
+      <v-card width="600" class="mx-auto my-10">
         <v-overlay :value="overlay">
         <v-progress-circular
             indeterminate
