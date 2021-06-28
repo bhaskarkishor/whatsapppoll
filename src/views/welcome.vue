@@ -1,14 +1,21 @@
 <template>
-  <div class="full-page-container">
-      <div class="text-container">
-          <h1>
-              Welcome
-          </h1>
-          <h2>
-              to whats app poll
-          </h2>
-        <router-link to="/create-poll">Create your own pole</router-link>
+  <div>
+      <div class="upper-container">
+          <v-container>
+          <div class="text-h6">
+              Welcome to
+          </div>
+          <div class="text-h1">
+              WhatsApp Poll
+          </div>          
+          </v-container>
       </div>
+      <v-container>
+         
+        <v-btn color="green" dark outlined to="/create-poll">
+            Create your own pole
+        </v-btn>
+      </v-container>
   </div>
 </template>
 
@@ -19,20 +26,10 @@ export default {
 </script>
 
 <style scoped>
-.full-page-container{
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
+.upper-container{
     background-color:green;
-}
-h1{
-    font-size: 5em;
-}
-.text-container{
-    margin-left: 10%;
-    color:white;
+    height: 25vh;
+    margin:0;
+    color: white;
 }
 </style>

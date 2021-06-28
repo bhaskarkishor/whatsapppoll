@@ -1,5 +1,5 @@
 <template>
-<v-card width="600" class="mx-auto my-12">
+<v-card width="90%" max-width="600px" class="mx-auto">
   <v-card-title>
     Select your choice
   </v-card-title>
