@@ -1,8 +1,8 @@
 <template>
 <v-card width="90%" max-width="600px" class="mx-auto">
-  <v-card-title>
+  <v-card-subtitle>
     Select your choice
-  </v-card-title>
+  </v-card-subtitle>
   <v-card-text>
     <vue-poll v-show="showResults" v-bind="options2" @addvote="addVote"/>
     <vue-poll v-show="!showResults" v-bind="options1" @addvote="addVote"/>
@@ -22,7 +22,7 @@ export default {
       options1: {
         question: '',
         answers: [],
-        showResults: false
+        showResults: localStorage.getItem(this.$route.params.id)
       },
       options2: {
         question: '',
@@ -92,6 +92,7 @@ export default {
       optionRef.doc(obj.value).update({
         votes: firebase.firestore.FieldValue.increment(1)
       })
+      localStorage.setItem(this.$route.params.id, true)
     },
     // openPhoneNumberModel(){
     //   this.modals.phoneNumberModal = "block";

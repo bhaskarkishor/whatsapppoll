@@ -9,22 +9,23 @@ Vue.use(VueRouter)
 
 const routes = [
     {
-        path: "/",
+        path: "/welcome",
         component: welcome,
-        name: welcome
     },
     {
         path:"/poll/:id",
         component: poll,
     },
     {
-      path: "/create-poll",
+      path: "/",
       component: createPoll,
     
     },
     {
+      name:"share",
       path:"/share/:id",
-      component: share
+      component: share,
+      props:true
     }
   ]
 const router = new VueRouter({

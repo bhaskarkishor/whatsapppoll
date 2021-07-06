@@ -76,6 +76,7 @@ export default {
             if(this.option.length!==0){
                 this.addOption()
             }
+            
             let batch = db.batch()
             batch.set(db.collection(this.collection_id).doc('poll'),{
                 'question': this.options.question,
@@ -95,7 +96,7 @@ export default {
                 return
             })
             this.overlay = false
-            this.$router.push("/share/"+this.collection_id)
+            this.$router.push({name:"share", params:{id:this.collection_id,options:this.options}})
         },
         clearAll(){
             this.options = {
@@ -105,7 +106,7 @@ export default {
             }
         }
     }
-}
+};
 </script>
 
 <style>
