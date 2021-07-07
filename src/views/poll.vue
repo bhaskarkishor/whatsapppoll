@@ -7,6 +7,12 @@
     <vue-poll v-show="showResults" v-bind="options2" @addvote="addVote"/>
     <vue-poll v-show="!showResults" v-bind="options1" @addvote="addVote"/>
   </v-card-text>
+  <v-card-actions>
+    <v-btn v-show="showResults" dark depressed color="green">
+      <v-icon>mdi-whatsapp</v-icon>
+      Share results
+    </v-btn>
+  </v-card-actions>
 </v-card>
 </template>
 
@@ -18,11 +24,11 @@ import firebase,{ db } from './../firebase'
 export default {
   data() {
     return {
-      showResults: false,
+      showResults: localStorage.getItem(this.$route.params.id)==="true",
       options1: {
         question: '',
         answers: [],
-        showResults: localStorage.getItem(this.$route.params.id)
+        showResults: localStorage.getItem(this.$route.params.id)==="true"
       },
       options2: {
         question: '',
@@ -44,7 +50,7 @@ export default {
       await questionRef.get()
         .then((doc)=>{
           if(doc.exists){
-            this.showResults = doc.data().showResults
+            // this.showResults = doc.data().showResults
             if(this.showResults){
               this.options2.question = doc.data().question
             }
@@ -93,6 +99,7 @@ export default {
         votes: firebase.firestore.FieldValue.increment(1)
       })
       localStorage.setItem(this.$route.params.id, true)
+      this.showResults = true
     },
     // openPhoneNumberModel(){
     //   this.modals.phoneNumberModal = "block";

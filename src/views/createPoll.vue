@@ -6,11 +6,15 @@
             size="64"
         ></v-progress-circular>
         </v-overlay>
-          <v-card-title>
-              Create your poll
-          </v-card-title>
-          <v-card-text>
-              <v-text-field label="What is your question?" v-model="options.question"></v-text-field>
+          
+            
+     
+        <v-card-text>
+            <h1>
+                Create your poll!
+            </h1>
+            <br/>
+              <v-text-field label="What is your question?" v-model="options.question" required></v-text-field>
               <v-list>
                   <v-list-item v-for="(option,idx) in options.answers" v-bind:key="idx">
                       <v-list-item-icon v-html="idx+1">
@@ -71,11 +75,20 @@ export default {
             this.collection_id = Math.random().toString(36).substring(7);
         },
         async createPoll(){
-            this.overlay = true
-            this.generateCollectionId()
+            if(this.options.question===null || this.options.question.length===0){
+                alert("Please choose a question")
+                return
+            }
             if(this.option.length!==0){
                 this.addOption()
             }
+            if(this.options.answers.length===0){
+                alert("Add at least one option")
+                return
+            }
+            this.overlay = true
+            this.generateCollectionId()
+            
             
             let batch = db.batch()
             batch.set(db.collection(this.collection_id).doc('poll'),{
