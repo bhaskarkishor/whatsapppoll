@@ -1,24 +1,5 @@
-# cod-poll
-
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# WAPolls
+A web app to create, share and collect responses and opinions in a whatsapp group
+<p align="center">
+<img src="src/assets/logo.png" height="300"/>
+</p>

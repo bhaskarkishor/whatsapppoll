@@ -8,7 +8,7 @@
     <vue-poll v-show="!showResults" v-bind="options1" @addvote="addVote"/>
   </v-card-text>
   <v-card-actions>
-    <v-btn v-show="showResults" dark depressed color="green">
+    <v-btn @click="shareResults" v-show="showResults" dark depressed color="green">
       <v-icon>mdi-whatsapp</v-icon>
       Share results
     </v-btn>
@@ -101,51 +101,15 @@ export default {
       localStorage.setItem(this.$route.params.id, true)
       this.showResults = true
     },
-    // openPhoneNumberModel(){
-    //   this.modals.phoneNumberModal = "block";
-    //   return true
-    // },
-    // getOtp(){
-    //   return
-    // },
-    // verifyUser(){
-    //   return this.openPhoneNumberModal();
-    // },
-    // async userHasVoted(){
-    //   if(this.modals.phoneNumberModal.phoneNumber !==''){
-    //     var status = await userRef.doc(this.modals.phoneNumberModal.phoneNumber).get();
-    //     if(status.exists && status.doc.data().voted){
-    //       return true
-    //     }
-    //     else{
-    //       return false
-    //     }
-    //   }
-    // },
-    
-    // addClanName(){
-    //   this.modals.addClanName.display = "block"
-    // },
-    // closeClanNameModal(){
-    //   this.modals.addClanName.display = "none";
-    // },
-    // addClanNameSubmit(){
-    //   this.closeClanNameModal();
-      
-    //   clanRef.add({
-    //     name: this.newClanName,
-    //     votes: 0
-    //   });
-    //   this.newClanName = '';
-    //   this.fetchPolls();
-    // },
-    // showResults(){
-    //   this.options.showResults = true;
-    //   // this.$router.go(0);
-    //   console.log("Force Uodate:");
-    // }
+    shareResults(){
+      let msg = this.options2.question+"\n"
+      this.options2.answers.forEach((obj)=>{
+        msg += obj.text + ' : '+obj.votes + '\n'
+      })
+      window.open("https://wa.me/?text="+encodeURIComponent(msg),'_blank')
+    }
   }
-}
+};
 </script>
 
 <style>

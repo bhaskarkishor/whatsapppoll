@@ -5,14 +5,16 @@
   </div>
   
   <router-view></router-view>
-
+    <p class="text-subtitle-2 text-center mt-1">
+      Made by <a class="text-decoration-none" href="https://github.com/bhaskarkishor">bhaskarkishor</a>
+    </p>
 </v-app>
 </template>
 
 <script>
 export default {
 
-}
+};
 </script>
 
 <style>

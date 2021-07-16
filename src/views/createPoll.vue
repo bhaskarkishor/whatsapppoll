@@ -1,4 +1,5 @@
 <template>
+    <div>
       <v-card width="90%" max-width="600px" class="mx-auto">
         <v-overlay :value="overlay">
         <v-progress-circular
@@ -13,7 +14,19 @@
             <h1>
                 Create your poll!
             </h1>
-            <br/>
+            <p class="text-caption mt-5">
+              <ul>
+                <li>
+                  Create a poll on this page
+                </li>
+                <li>
+                  Share the link in WhatsApp groups
+                </li>
+                <li>
+                  Share the result from polls page
+                </li>
+              </ul>
+            </p>
               <v-text-field label="What is your question?" v-model="options.question" required></v-text-field>
               <v-list>
                   <v-list-item v-for="(option,idx) in options.answers" v-bind:key="idx">
@@ -35,6 +48,11 @@
               <v-btn @click="clearAll" text>Reset</v-btn>
           </v-card-actions>
       </v-card>
+    <p class="text-caption text-center font-weight-light mt-5">
+      The poll is public and can be accessed by anyone.
+    </p>
+
+  </div>
 </template>
 
 <script>
